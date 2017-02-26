@@ -1,0 +1,15 @@
+{
+    "env": {
+        "browser": true,
+        "jest": true
+    },
+    "extends": "airbnb/base",
+    "rules": {
+        "no-plusplus": "off",
+        "no-console": "off",
+        "one-var-declaration-per-line": "off",
+        "one-var": "off",
+        "prefer-const": "off"
+
+    }
+}

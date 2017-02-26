@@ -1,0 +1,23 @@
+{
+  "name": "learn",
+  "version": "1.0.0",
+  "description": "learn JS",
+  "main": "index.js",
+  "scripts": {
+  "test": "jest"
+  },
+  "author": "Aleksandr Zotov",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-eslint": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-stage-0": "*",
+    "babel-register": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-plugin-import": "^2.2.0",
+    "jest": "^18.1.0"
+  }
+}
