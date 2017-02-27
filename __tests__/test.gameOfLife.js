@@ -1,31 +1,43 @@
-import { createField, collectCells, step } from '../gameOfLife';
+import { collectCells, step } from '../src/gameOfLife';
+import { makePulsar, parseField } from '../src/createField';
 
-test('Create game field with specified size', () => {
-  const field = createField(10);
-  expect(field.length).toBe(10);
+test('Parse game field.', () => {
+  const field = [
+    '.....',
+    '.....',
+    '.###.',
+    '.....',
+    '.....'];
+  const result = [
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, true, true, true, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false]];
+  expect(parseField(field)).toEqual(result);
 });
 
 test('Collect cells near with specified cell', () => {
-  const field = createField(10);
-  expect(collectCells(field, 11, 0).length).toBe(0);
+  const field = makePulsar();
+  expect(collectCells(field, 21, 0).length).toBe(0);
   expect(collectCells(field, 0, 0).length).toBe(3);
   expect(collectCells(field, 5, 5).length).toBe(8);
 });
 
 test('Make one iteration games', () => {
-  const field1 =
-    [[0, 0, 0, 0, 0],
-     [0, 0, 0, 0, 0],
-     [0, 1, 1, 1, 0],
-     [0, 0, 0, 0, 0],
-     [0, 0, 0, 0, 0]];
+  const field1 = [
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, true, true, true, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false]];
   const field2 = step(field1);
   const field3 = step(field2);
   expect(field2).toEqual(
-    [[0, 0, 0, 0, 0],
-     [0, 0, 1, 0, 0],
-     [0, 0, 1, 0, 0],
-     [0, 0, 1, 0, 0],
-     [0, 0, 0, 0, 0]]);
+    [[false, false, false, false, false],
+    [false, false, true, false, false],
+    [false, false, true, false, false],
+    [false, false, true, false, false],
+    [false, false, false, false, false]]);
   expect(field3).toEqual(field1);
 });
