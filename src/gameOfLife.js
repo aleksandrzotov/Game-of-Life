@@ -1,23 +1,17 @@
-export const collectCells = (field, x, y) => {
-  if (x >= field[0].length || y >= field.length) {
-    return [];
-  }
-  return field.reduce((acc, line, curY) =>
-  line.reduce((curAcc, cell, curX) => {
-    if (curX === x && curY === y) {
-      return acc;
-    } else if ((curX <= x + 1 && curX >= x - 1) && (curY <= y + 1 && curY >= y - 1)) {
-      acc.push(cell);
-      return acc;
+export const countLiveNeighbors = (field, x, y) => {
+  const range = [-1, 0, 1];
+  const neighbors = range.map(dy => range.map((dx) => {
+    if (dx === 0 && dy === 0) {
+      return undefined;
     }
-    return acc;
-  }, acc), []);
+    return field[y + dy] && field[y + dy][x + dx];
+  }));
+  return [].concat(...neighbors).filter(item => item).length;
 };
-
 
 export const step = (field) => {
   const changeCell = (cell, x, y) => {
-    const liveNeighbors = collectCells(field, x, y).filter(item => item).length;
+    const liveNeighbors = countLiveNeighbors(field, x, y);
     const mustDie = (liveNeighbors < 2) || (liveNeighbors > 3);
     const spawning = !cell && (liveNeighbors === 3);
     return spawning || (cell && !mustDie);
