@@ -16,15 +16,12 @@ export const collectCells = (field, x, y) => {
 
 
 export const step = (field) => {
-  const newField = field.map((line, y) => line.map((cell, x) => {
+  const changeCell = (cell, x, y) => {
     const liveNeighbors = collectCells(field, x, y).filter(item => item).length;
-
-    if (!cell && liveNeighbors === 3) {
-      return true;
-    } else if (cell && (liveNeighbors < 2 || liveNeighbors > 3)) {
-      return false;
-    }
-    return cell;
-  }));
+    const mustDie = (liveNeighbors < 2) || (liveNeighbors > 3);
+    const spawning = !cell && (liveNeighbors === 3);
+    return spawning || (cell && !mustDie);
+  };
+  const newField = field.map((line, y) => line.map((cell, x) => changeCell(cell, x, y)));
   return newField;
 };
