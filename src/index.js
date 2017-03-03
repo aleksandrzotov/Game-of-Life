@@ -1,19 +1,10 @@
-import { makePulsar } from './createField';
-import { step } from './gameOfLife';
-import render from './render';
+import { makePulsar, makeBlinker } from './createField';
+import Main from './main';
 
 
-const configurateMain = (builder, period) => {
-  const main = () => {
-    const startField = builder();
-    const updateField = (field) => {
-      render(field, 'game-field-container');
-      const newField = step(field);
-      setTimeout(updateField, period, newField);
-    };
-    setTimeout(updateField, period, startField);
+window.onload = () => {
+  const game = new Main(makePulsar(), 'game-field-container');
+  document.getElementById('blinker').onclick = () => {
+    game.setState(makeBlinker());
   };
-  return main;
 };
-
-window.onload = configurateMain(makePulsar, 150);
