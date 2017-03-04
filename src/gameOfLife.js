@@ -16,6 +16,49 @@ export const step = (field) => {
     const spawning = !cell && (liveNeighbors === 3);
     return spawning || (cell && !mustDie);
   };
-  const newField = field.map((line, y) => line.map((cell, x) => changeCell(cell, x, y)));
-  return newField;
+  return field.map((line, y) => line.map((cell, x) => changeCell(cell, x, y)));
 };
+
+
+export class GameOfLife {
+  constructor(state, containerId) {
+    this.state = state;
+    this.speed = 800;
+    this.containerId = containerId;
+    this.intervalId = setInterval(this.createField.bind(this), this.speed);
+  }
+  createField() {
+    this.setState(step(this.state));
+  }
+
+  speedUp() {
+    clearInterval(this.intervalId);
+    this.speed = this.speed <= 300 ? this.speed : this.speed - 200; // TODO minimal speed value
+    this.intervalId = setInterval(this.createField.bind(this), this.speed);
+  }
+
+  speedDown() {
+    this.speed = this.speed + 50;
+  }
+
+  setState(state) {
+    this.state = state;
+    this.render();
+  }
+
+  render() {
+    const gameFieldContainer = document.getElementById(this.containerId);
+    gameFieldContainer.innerHTML = '';
+    const newTable = document.createElement('table');
+    newTable.className = 'game-field';
+    gameFieldContainer.appendChild(newTable);
+    this.state.forEach((line) => {
+      const curRow = newTable.insertRow();
+      line.forEach((elem) => {
+        const curCell = curRow.insertCell();
+        curCell.className = elem ? 'field-cell-black' : 'field-cell-white';
+      });
+    });
+  }
+
+}

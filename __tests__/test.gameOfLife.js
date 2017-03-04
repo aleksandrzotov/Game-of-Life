@@ -1,5 +1,5 @@
 import { countLiveNeighbors, step } from '../src/gameOfLife';
-import { makeBlinker, parseField } from '../src/createField';
+import { makeBlinker, parseField } from '../src/libraryFigures';
 
 test('Parse game field.', () => {
   const field = [
