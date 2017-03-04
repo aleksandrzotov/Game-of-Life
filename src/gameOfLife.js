@@ -25,6 +25,7 @@ export class GameOfLife {
     this.state = state;
     this.speed = 800;
     this.containerId = containerId;
+    this.pause = false;
     this.intervalId = setInterval(this.createField.bind(this), this.speed);
   }
   createField() {
@@ -33,12 +34,23 @@ export class GameOfLife {
 
   speedUp() {
     clearInterval(this.intervalId);
-    this.speed = this.speed <= 300 ? this.speed : this.speed - 200; // TODO minimal speed value
+    this.speed = this.speed <= 300 ? this.speed : this.speed - 200;
     this.intervalId = setInterval(this.createField.bind(this), this.speed);
   }
 
   speedDown() {
-    this.speed = this.speed + 50;
+    clearInterval(this.intervalId);
+    this.speed = this.speed + 200;
+    this.intervalId = setInterval(this.createField.bind(this), this.speed);
+  }
+
+  pauseGame() {
+    if (this.pause) {
+      this.intervalId = setInterval(this.createField.bind(this), this.speed);
+    } else {
+      clearInterval(this.intervalId);
+    }
+    this.pause = !this.pause;
   }
 
   setState(state) {
