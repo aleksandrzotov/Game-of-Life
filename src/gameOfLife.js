@@ -34,13 +34,13 @@ export class GameOfLife {
 
   speedUp() {
     clearInterval(this.intervalId);
-    this.speed = this.speed <= 300 ? this.speed : this.speed - 200;
+    this.speed = this.speed <= 150 ? this.speed : this.speed - 100;
     this.intervalId = setInterval(this.createField.bind(this), this.speed);
   }
 
   speedDown() {
     clearInterval(this.intervalId);
-    this.speed = this.speed + 200;
+    this.speed = this.speed + 100;
     this.intervalId = setInterval(this.createField.bind(this), this.speed);
   }
 
