@@ -26,21 +26,22 @@
 /* close commented backslash hack */
 
 .page-header {
-    padding: 5px 5px 5px 7%;
+    padding: 5px 10% 5px 10%;
     font-size: 30px;
 }
 
 .main-menu {
-    padding: 5px 5px 5px 7%;
+    padding: 5px 10% 5px 10%;
     font-size: 25px;
 }
 
 .examples {
-    width: 90%;
+    width: 80%;
     margin-top: 30px;
+    margin-left: 10%;
 }
 
-#game-field-container {
+#game-field {
     width: 65%;
     float: right;
     margin-top: 15px;
@@ -48,25 +49,21 @@
 
 .blinker, .pulsar, .glider-gun {
     border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.blinker, .pulsar {
+    width: 20vw;
+    height: 20vw;
+}
+
+.glider-gun {
+    width: 30.83333vw;
+    height: 20vw;
 }
 
 .blinker td, .pulsar td, .glider-gun td {
-    border: 2px solid grey;
-}
-
-.blinker td {
-    width: 95px;
-    height: 95px;
-}
-
-.pulsar td {
-    width: 25px;
-    height: 25px;
-}
-
-.glider-gun td {
-    width: 17px;
-    height: 17px;
+    border: 1px solid grey;
 }
 
 .cell-white {
@@ -77,24 +74,34 @@
     background-color: black;
 }
 
-#control {
+#phigures {
     width: 20%;
     float: left;
+    margin-top: 40px;
 }
 
-#control li {
+#phigures li {
     list-style-type: none;
 }
 
 .button {
-    margin: 10px;
-    width: 250px;
-    height: 60px;
+    margin-top: 30px;
+    width: 150px;
+    height: 30px;
+    font-size: 20px;
+}
+
+#speed-up, #speed-down, #pause {
     font-size: 30px;
+    margin: 10px;
 }
 
 #footer {
     padding-bottom: 20px;
     padding-top: 20px;
     text-align: center;
+}
+
+.summary {
+    outline: none;
 }

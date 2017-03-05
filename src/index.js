@@ -7,7 +7,7 @@ window.onload = () => {
   document.getElementById('blinker').onclick = game.setState.bind(game, makeBlinker());
   document.getElementById('pulsar').onclick = game.setState.bind(game, makePulsar());
   document.getElementById('glider-gun').onclick = game.setState.bind(game, makeGosperGliderGun());
-  document.getElementById('speedUp').onclick = game.speedUp.bind(game);
-  document.getElementById('speedDown').onclick = game.speedDown.bind(game);
+  document.getElementById('speed-up').onclick = game.speedUp.bind(game);
+  document.getElementById('speed-down').onclick = game.speedDown.bind(game);
   document.getElementById('pause').onclick = game.pauseGame.bind(game);
 };
