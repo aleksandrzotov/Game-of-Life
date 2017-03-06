@@ -9,7 +9,6 @@
         "no-console": "off",
         "one-var-declaration-per-line": "off",
         "one-var": "off",
-        "prefer-const": "off",
-        "default-case": "off"
+        "prefer-const": "off"
     }
 }
