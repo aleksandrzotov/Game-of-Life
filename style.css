@@ -26,30 +26,52 @@
 /* close commented backslash hack */
 
 .page-header {
-    padding: 5px 10% 5px 10%;
-    font-size: 30px;
+    margin-left: 10vw;
+    font-size: 2.5vw;
 }
 
-.main-menu {
-    padding: 5px 10% 5px 10%;
-    font-size: 25px;
+.main {
+    margin-left: 10vw;
+    width: 80vw;
 }
 
 .examples {
-    width: 80%;
-    margin-top: 30px;
-    margin-left: 10%;
+    width: 80vw;
 }
 
 #game-field {
-    width: 65%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 3vw;
+    margin-top: 1vw;
+    width: 56vw;
+    height: 24vw;
     float: right;
-    margin-top: 15px;
+}
+
+#game-field-container {
+    margin: 1vw 1vw 1vw 1vw;
+}
+
+#control {
+    margin: auto;
+    width: 12vw;
+}
+
+#control ul {
+    list-style-type: none;
+    padding: 0vw;
+    margin: 0vw;
+}
+
+#control li {
+    display: inline-block;
 }
 
 .blinker, .pulsar, .glider-gun {
     border-collapse: collapse;
     table-layout: fixed;
+    margin: auto;
 }
 
 .blinker, .pulsar {
@@ -75,33 +97,56 @@
 }
 
 #phigures {
-    width: 20%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 3vw;
+    margin-top: 1vw;
+    width: auto;
+    height: 24vw;
     float: left;
-    margin-top: 40px;
+    margin-right: 1vw;
+}
+
+#phigures ul {
+    padding: 0vw;
 }
 
 #phigures li {
+    margin-top: 2vw;
     list-style-type: none;
 }
 
-.button {
-    margin-top: 30px;
-    width: 150px;
-    height: 30px;
-    font-size: 20px;
+.button-phigures {
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 10vw;
+    height: 5vw;
+    font-size: 1.7vw;
 }
 
 #speed-up, #speed-down, #pause {
-    font-size: 30px;
-    margin: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 2vw;
+    margin: auto;
 }
 
 #footer {
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
     text-align: center;
+    font-size: 1.7vw;
+}
+
+.article {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 1vw;
+    margin-top: 1vw;
+    font-size: 1.3vw;
 }
 
 .summary {
     outline: none;
+    font-size: 1.7vw;
 }
